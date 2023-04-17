@@ -7,7 +7,7 @@ from bank import Bank
 my_bank = Bank("My Bank")
 
 # create some accounts
-account_one = SavingsAccount("AB12345", "Adam Smith", 5000, 0.1, 1000)
+account_one = SavingsAccount("AB12345", "John Doe", 5000, 0.1, 1000)
 account_two = CheckingAccount("WS56789", "Rose Robertson", 10000, 0.05, 5000)
 
 # add the accounts to the bank
