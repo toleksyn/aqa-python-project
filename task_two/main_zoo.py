@@ -6,11 +6,11 @@ from zookeeper import Zookeeper
 
 # Create some animals
 dog = Mammal("Labrador", "Kora", 2, "F", 4)
-owl = Bird("Snowy Owl", "Hedwig", 5, "M", 77)
+owl = Bird("Snowy Owl", "Hedwig", 4, "M", 77)
 snake = Reptile("Salazar's pit viper", "Nagini", "F", 10, "dark green")
 
 # Create a zookeeper responsible for these animals
-zookeeper = Zookeeper("Hagrid", 40, [dog, owl, snake])
+zookeeper = Zookeeper("Hagrid", 41, [dog, owl, snake])
 
 # Interact with the animals via the zookeeper
 dog.nurse()
