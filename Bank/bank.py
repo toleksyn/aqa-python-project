@@ -13,7 +13,7 @@ class Bank:
     def remove_account(self, account):
         self.list_of_accounts.remove(account)
 
-    def all_bank_accounts(self, account):
+    def bank_info(self, account):
         print(self.name, "has such account holders")
         for account in self.list_of_accounts:
             print(account.account_holder_name, "with", account.balance, "balance")
@@ -24,7 +24,7 @@ class Bank:
                 return "Account holder: " + account.account_holder_name
         return "Account with " + "'" + str(account.account_number) + "'" + " account number doesn't exist"
 
-    def total_interests_earned(self):
+    def earned_interests(self):
         total_interests = 0
         for account in self.list_of_accounts:
             total_interests += account.interest_rate
