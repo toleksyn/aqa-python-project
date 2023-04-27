@@ -22,7 +22,7 @@ class Order:
         items = []
         for item in self.items:
             items.append(item.name)
-        return "You ordered: " + str(items)
+        return items
 
     def get_total(self):
         total_price = 0
@@ -31,7 +31,4 @@ class Order:
         return f"Order Total: ${total_price}"
 
     def __str__(self):
-        items = []
-        for item in self.items:
-            items.append(item.name)
-        return f"Table {self.table_number}: {items} - {self.get_total()}"
+        return f"Table {self.table_number}: {self.get_items()} - {self.get_total()}"
