@@ -1,4 +1,3 @@
-
 class MenuItem:
     def __init__(self, name, price, description, is_vegetarian):
         self.name = name
