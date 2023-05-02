@@ -8,7 +8,7 @@ class CheckingAccount(Account):
 
     def withdraw(self, amount):
         if self.balance - amount < -self.overdraft_limit:
-            print("Error: Withdraw amount too high.")
+            print("Error: Not enough money, withdraw amount is too high.")
         else:
             super().withdraw(amount)
 
