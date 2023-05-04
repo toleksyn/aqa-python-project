@@ -3,9 +3,9 @@ from savings_account import SavingsAccount
 from checkinga_ccount import CheckingAccount
 from bank import Bank
 
-account1 = Account(1, "Viktor Nesterenko", 1000, 0.02)
-account2 = SavingsAccount(2, "Robin Hood", 500, 0.01, 100)
-account3 = CheckingAccount(3, "Bart Simpson", 2000, 0.03, 500)
+account_main = Account(1, "Viktor Nesterenko", 1000, 0.02)
+account_sav = SavingsAccount(2, "Robin Hood", 500, 0.01, 100)
+account_check = CheckingAccount(3, "Bart Simpson", 2000, 0.03, 500)
 
 bank = Bank()
 bank.add_account(account1)
