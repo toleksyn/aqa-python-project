@@ -11,6 +11,13 @@ class Restaurant:
 
     def get_orders(self):
         return self.tables
+    
+    def print_orders(self, table_number):
+        if table_number in self.tables:
+            orders = self.tables[table_number]
+            print(f"Orders for table {table_number}: {orders}")
+        else:
+            print(f"No orders found for table {table_number}")
 
     def __str__(self):
         table_numbers = list(self.tables.keys())
