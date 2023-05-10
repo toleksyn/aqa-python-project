@@ -12,7 +12,7 @@ search_input.type('Selene').press_enter()
 
 # Verify that the first link contains Selene in its text
 first_result_link = browser.element('//*[@id="rso"]/div[1]/div/div')
-assert 'Selene' in first_result_link.text, f"Expected 'Selene' to be in the first result link, but found '{first_result_link.text}'"
+assert 'Selene' in first_result_link.text, f" 'Selene' word was not found in the first result link"
 
 # Wait for 5 seconds for the search results to load
 sleep(5)
@@ -24,5 +24,5 @@ google_logo.click()
 # Wait for 5 seconds for the search results to load
 sleep(5)
 
-# Verify that you navigated back to the home page and that home page is open
-assert "Google" in browser.title(), f"Expected 'Google' to be in the title, but found '{browser.title()}'"
+# Verify that you navigated back to the home page and that homepage is open
+assert "Google" in browser.title(), f"You are not navigated back to the Google homepage"
