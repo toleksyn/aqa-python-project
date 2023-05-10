@@ -16,7 +16,7 @@ sleep(5)
 
 # get search result links
 result_links = browser.all(by.xpath('//*[@id="rso"]//a/h3'))
-assert len(result_links) == 9, f'Expected 9 result links, but found {len(result_links)}'
+assert len(result_links) == 9, f'Less than 9 result links are found'
 
 # close the browser
 browser.quit()
