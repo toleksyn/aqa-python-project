@@ -11,8 +11,9 @@ class Account:
         self.balance = balance
         self.interest_rate = interest_rate
 
-    def deposit_money(self):
-        print("Deposit money!")
+    def deposit_money(self, amount):
+        self.balance += amount
+        return f'You deposit "{amount}". Your current balance is {self.balance}'
 
     @abstractmethod
     def withdraw_money(self):
