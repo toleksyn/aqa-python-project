@@ -11,10 +11,11 @@ class CheckingAccount(Account):
         self.overdraft_limit = overdraft_limit
 
     def withdraw_money(self):
-        if self.balance < self.overdraft_limit:
-            print("Your balance is less than overdraft limit")
+        if amount < self.overdraft_limit:
+            self.balance -= amount
+            return f'You withdraw {amount}, your current balance is {self.balance}'
         else:
-            print("You can withdraw $", self.balance)
+            return f'Withdraw amount {amount} higher than your overdraft limit {self.overdraft_limit}'
 
     def interest_earned(self):
         print("You've earned", self.interest_rate, "interests")
