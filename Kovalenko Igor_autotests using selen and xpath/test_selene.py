@@ -15,5 +15,5 @@ browser.all("//div[@id='rso']")[0].element(by.xpath('.//h3')).should(have.text('
 browser.element(by.xpath("//*[@id='logo']/img")).click()
 browser.element(by.xpath("//img[@alt='Google']"))
 browser.element(by.xpath("//*[@id='APjFqb']"))
-browser.element(by.xpath("//form/div[1]/div[1]/div[4]/center/input[1]"))
-browser.element(by.xpath("//form/div[1]/div[1]/div[4]/center/input[2]"))
+browser.element(by.xpath('//input[@value="Google Search"]'))
+browser.element(by.xpath('//input[@value="I`m Feeling Lucky"]'))
