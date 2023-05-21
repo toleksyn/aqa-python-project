@@ -17,11 +17,10 @@ results = browser.all('//a/span[contains(text(), "iPhone")]').should(have.size_g
 
 # Verify the 3rd product has a price, save the price
 third_product = browser.element(by.xpath('//rz-grid/ul/li[3]'))
-price_plp = browser.element(by.xpath('//rz-grid/ul/li[3]/rz-catalog-tile/app-goods-tile-default/div/div[2]/div[4]/div[2]/p/span')).text
+price_plp = browser.element(by.xpath("(//div[contains(@class, 'goods-tile__inner')])[3]//span[contains(@class, 'goods-tile__price-value')]"))
 
 # Click on the 3rd product and verify that the stored price and price on product page is equal
 third_product.should(be.clickable).click()
-price_pdp = browser.element(by.xpath('//p[@class="product-price__big product-price__big-color-red"]')).text
+price_pdp = browser.element(by.xpath('//p[@class="product-price__big product-price__big-color-red"]'))
 
-assert price_plp == price_pdp, f'The stored price and price on product page is not equal'
-
+assert price_plp.text == price_pdp.text, f'The stored price and price on product page is not equal'
