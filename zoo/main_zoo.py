@@ -1,13 +1,14 @@
 from mammal import Mammal
+from bird import Bird
+from reptile import Reptile
+from zookeeper import Zookeeper
+
 giraffe = Mammal("Giraffe", "Lola", 3, "Female", 4)
 
-from bird import Bird
 owl = Bird("Owl", "Lu", 3, "Female", 2)
 
-from reptile import Reptile
 crocodile = Reptile("Crocodile", "Milo", 5, "Male", "Green")
 
-from zookeeper import Zookeeper
 zookeeper_one = Zookeeper("Emma", 27, [giraffe, owl, crocodile])
 zookeeper_two = Zookeeper("Tom", 30, [giraffe, owl, crocodile])
 zookeeper_one.feed_animals()
