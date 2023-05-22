@@ -15,11 +15,9 @@ search_field.type("iPhone").press_enter()
 
 # assert
 browser.all(by.xpath("//a/span[contains(text(), 'iPhone')]")).should(have.size_at_least(5))
-third_element_price = browser.element(by.xpath("//rz-grid/ul/li[3]"
-                                               "/rz-catalog-tile/app-goods-tile-default"
-                                               "/div/div[2]/div[4]/div[2]/p/span")).text
+third_element_price = browser.element(by.xpath("(//span[@class='goods-tile__price-value'])[3]")).text
 
-browser.element(by.partial_link_text("Apple iPhone 14 128G")).click()
+browser.element(by.xpath("(//span[@class='goods-tile__title'])[3]")).click()
 
 third_element_price_on_pdp = \
     browser.element(by.xpath("//p[@class='product-price__big product-price__big-color-red']")).text
