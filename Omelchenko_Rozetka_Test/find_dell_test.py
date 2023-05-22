@@ -15,16 +15,13 @@ search_field.type("dell").press_enter()
 # assert
 browser.all(by.xpath("//a/span[contains(text(), 'Dell')]")).should(have.size_at_least(10))
 
-fifth_element_price = browser.element(by.xpath("//rz-grid/ul/li[5]/rz-catalog-tile"
-                                               "/app-goods-tile-default/div/div[2]/div[4]/div[2]/p/span")).text
-fifth_element_name = browser.element(by.xpath("//rz-grid/ul/li[5]/rz-catalog-tile"
-                                              "/app-goods-tile-default/div/div[2]/a[2]/span")).text
+fifth_element_price = browser.element(by.xpath("(//span[@class='goods-tile__price-value'])[5]")).text
+fifth_element_name = browser.element(by.xpath("(//span[@class='goods-tile__title'])[5]")).text
 
-browser.element(by.xpath("//rz-grid/ul/li[5]/rz-catalog-tile"
-                         "/app-goods-tile-default/div/div[2]/div[4]/div[2]/app-buy-button/button")).click()
-browser.element(by.xpath("//rz-cart/button")).click()
+add_product_to_cart = browser.element(by.xpath("(//app-buy-button/button)[5]")).click()
+click_cart_button_in_header = browser.element(by.xpath("//rz-cart/button")).click()
 
-fifth_element_name_in_basket = browser.element(by.xpath("//rz-cart-product/div/div[1]/div/a")).text
-fifth_element_price_in_basket = browser.element(by.xpath('//p[@class="cart-product__price cart-product__price--red"]')).text
+fifth_element_name_in_basket = browser.element(by.xpath("//div[@class='cart-product__main']/a")).text
+fifth_element_price_in_basket = browser.element(by.xpath("//p[@class='cart-product__price']")).text
 
 assert fifth_element_name == fifth_element_name_in_basket and fifth_element_price == fifth_element_price_in_basket
