@@ -17,14 +17,14 @@ burger = MenuItem("Burger", 9.99, "Juicy beef patty on a sesame seed bun", False
 fries = MenuItem("Fries", 3.99, "Crispy golden fries", True)
 
 # Create orders
-order1 = Order(1) # Table number is 1
-order1.add_item(tofu)
-order1.add_item(chicken)
-order1.add_item(soda)
-print(order1)
+first_order = Order(1) # Table number is 1
+first_order.add_item(tofu)
+first_order.add_item(chicken)
+first_order.add_item(soda)
+print(first_order)
 
-order2 = Order(2) # Table number is 2
-order2.add_item(tofu)
-order2.add_item(fries)
-order2.add_item(tonic)
-print(order2)
+second_order = Order(2) # Table number is 2
+second_order.add_item(tofu)
+second_order.add_item(fries)
+second_order.add_item(tonic)
+print(second_order)
