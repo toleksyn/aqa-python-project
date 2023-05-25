@@ -11,5 +11,5 @@ browser.all("//div[@id='rso']")[0].element(by.xpath('.//h3')).should(have.text('
 
 browser.element(by.xpath("//*[@id='logo']/img")).click()
 browser.element(by.xpath("//img[@alt='Google']")).should(be.visible)
-browser.element(by.xpath("//form/div[1]/div[1]/div[4]/center/input[1]")).should(be.clickable)
-browser.element(by.xpath("//form/div[1]/div[1]/div[4]/center/input[2]")).should(be.clickable)
+browser.element(by.xpath("(//input[@name='btnK'])[2]")).should(be.clickable)
+browser.element(by.xpath("(//input[@name='btnI'])[2]")).should(be.clickable)
