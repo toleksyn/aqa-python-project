@@ -58,6 +58,10 @@ def test_rozetka_search():
     search_result_page.verify_the_3rd_product_price(3)
     product_page = RozetkaProductPage()
     product_page.open_product_page(3)
+    
+    #    class RozetkaProductPage:
+    #^^^^^
+#SyntaxError: invalid syntax
 
 
 
