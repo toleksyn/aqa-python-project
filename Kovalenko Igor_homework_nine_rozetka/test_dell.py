@@ -12,8 +12,8 @@ search_field.should(be.clickable).type("Dell").press_enter()
 results = browser.all(by.xpath("//a/span[contains(text(), 'Dell')]")).should(have.size_at_least(10))
 
 # Save the name and the price of 5th product, add it to the basket
-fifth_product_name = browser.element(by.xpath("(//div[contains(@class,'goods-tile__inner')])[5]//a[contains(@class,'goods-tile__heading')]/span"))
-fifth_product_price = browser.element(by.xpath("(//div[contains(@class,'goods-tile__inner')])[5]//span[contains(@class,'goods-tile__price-value')]"))
+fifth_product_name_on_search_page = browser.element(by.xpath("(//div[contains(@class,'goods-tile__inner')])[5]//a[contains(@class,'goods-tile__heading')]/span"))
+fifth_product_price_on_search_page = browser.element(by.xpath("(//div[contains(@class,'goods-tile__inner')])[5]//span[contains(@class,'goods-tile__price-value')]"))
 
 browser.element(by.xpath("(//div[@class='goods-tile__inner']//button[contains(@class, 'buy-button')])[5]")).click()
 
@@ -25,8 +25,8 @@ browser.element(by.xpath('//a[@class="cart-product__title"]')).should(be.visible
 browser.element(by.xpath('//p[@class="cart-product__price"]')).should(be.visible)
 browser.element(by.xpath('//a[@data-testid="cart-receipt-submit-order"]')).should(be.clickable)
 
-fifth_product_name_basket = browser.element(by.xpath('//a[@class="cart-product__title"]'))
-fifth_product_price_basket = browser.element(by.xpath('//p[@class="cart-product__price"]'))
+fifth_product_name_in_basket = browser.element(by.xpath('//a[@class="cart-product__title"]'))
+fifth_product_price_in_basket = browser.element(by.xpath('//p[@class="cart-product__price"]'))
 
-assert fifth_product_name.text == fifth_product_name_basket.text, f'Product`s name in Basket is incorrect'
-assert fifth_product_price.text == fifth_product_price_basket.text, f'Product`s price in Basket is incorrect'
+assert fifth_product_name_on_search_page.text == fifth_product_name_in_basket.text, f'Product`s name in Basket is incorrect'
+assert fifth_product_price_on_search_page.text == fifth_product_price_in_basket.text, f'Product`s price in Basket is incorrect'
