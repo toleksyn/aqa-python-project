@@ -16,11 +16,11 @@ browser.all(by.xpath('//ul[@class="catalog-grid ng-star-inserted"]')).should(hav
 results = browser.all('//a/span[contains(text(), "iPhone")]').should(have.size_greater_than_or_equal(5))
 
 # Verify the 3rd product has a price, save the price
-third_product = browser.element(by.xpath('//rz-grid/ul/li[3]'))
-price_plp = browser.element(by.xpath("(//div[contains(@class, 'goods-tile__inner')])[3]//span[contains(@class, 'goods-tile__price-value')]"))
+third_product_on_search_page = browser.element(by.xpath('//rz-grid/ul/li[3]'))
+product_price_on_search_page = browser.element(by.xpath("(//div[contains(@class, 'goods-tile__inner')])[3]//span[contains(@class, 'goods-tile__price-value')]"))
 
 # Click on the 3rd product and verify that the stored price and price on product page is equal
-third_product.should(be.clickable).click()
-price_pdp = browser.element(by.xpath('//p[@class="product-price__big product-price__big-color-red"]'))
+third_product_on_search_page.should(be.clickable).click()
+product_price_on_product_page = browser.element(by.xpath('//p[@class="product-price__big product-price__big-color-red"]'))
 
-assert price_plp.text == price_pdp.text, f'The stored price and price on product page is not equal'
+assert product_price_on_search_page.text == product_price_on_product_page.text, f'The stored price and price on product page is not equal'
