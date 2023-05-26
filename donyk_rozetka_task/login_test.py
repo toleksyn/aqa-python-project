@@ -13,5 +13,5 @@ browser.element(by.xpath('//input[@id="auth_pass"]')).should(be.visible)
 browser.element(by.xpath('//button[@class="button button--large button--green auth-modal__submit ng-star-inserted"]')).should(be.clickable)
 
 # Close the login modal and verify it's closed
-close_button = browser.element(by.xpath('//button[@class="modal__close"]')).click()
+browser.element(by.xpath('//button[@class="modal__close"]')).click()
 browser.element(by.xpath('//div[@class="modal__content"]')).should_not(be.visible)
