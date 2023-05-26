@@ -15,7 +15,6 @@ third_product_price = browser.element(by.xpath('(//span[@class="goods-tile__pric
 
 # Click on the 3rd product and verify the stored price and price on product page is equal
 browser.element(by.xpath('//div[@data-goods-id="352486566"]')).click()
-# browser.element(by.xpath('//a[@class="goods-tile__picture ng-star-inserted"]')).click()
 
 product_page_price = browser.element(by.xpath('//p[@class="product-price__big product-price__big-color-red"]')).text
 assert third_product_price == product_page_price
