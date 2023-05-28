@@ -22,4 +22,3 @@ class RozetkaHomePage:
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted"]')).click()
 
         return LoginModal()
-

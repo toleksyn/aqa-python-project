@@ -3,7 +3,7 @@ from selene import config
 import pytest
 
 from basket_modal import BasketModal
-from products_open import ProductsOpen
+from product_details_page import ProductDetailsPage
 
 class RozetkaSearchResultsPage:
 
@@ -12,14 +12,14 @@ class RozetkaSearchResultsPage:
 
     def verify_product_price_present(self, product_number):
         product = browser.element(by.xpath('//rz-grid/ul/li'))
-        price_plp = browser.element(by.xpath(
+        product_price_on_search_page = browser.element(by.xpath(
             "(//div[contains(@class, 'goods-tile__inner')])//span[contains(@class, 'goods-tile__price-value')]"))
 
-    def click_on_product(self, product_number):
+    def open_the_product(self, product_number):
         product = browser.element(by.xpath('//rz-grid/ul/li'))
         product.should(be.clickable).click()
 
-        return ProductsOpen()
+        return ProductDetailsPage
 
     def add_products_to_basket(self, product_number):
         browser.element(by.xpath("(//div[@class='goods-tile__inner']//button[contains(@class, 'buy-button')])")).click()
