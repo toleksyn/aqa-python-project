@@ -21,8 +21,4 @@ class RozetkaHomePage:
     def open_login_modal(self) -> LoginModal():
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted"]')).click()
 
-<<<<<<< HEAD
         return LoginModal()
-=======
-        return LoginModal()
->>>>>>> cbee3601fb52556f945a2c01abc81c55a0a2857e
