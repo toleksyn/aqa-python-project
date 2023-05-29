@@ -18,10 +18,10 @@ def test_rozetka_search_po():
     results_page.verify_search_results_at_least(10)
 
     pdp_results_page = ProductDetailsPage()
-    product_name_on_search_page = pdp_results_page.verify_product_name_present(5)
-    product_price_on_search_page = pdp_results_page.verify_product_price_present_on_pdp(5)
+    product_name_on_search_page = pdp_results_page.verify_product_name_present(product_number=5)
+    product_price_on_search_page = pdp_results_page.verify_product_price_present_on_pdp(product_number=5)
 
-    add_product_to_basket = RozetkaSearchResultsPage().add_products_to_basket(5)
+    add_product_to_basket = RozetkaSearchResultsPage().add_products_to_basket(product_number=5)
 
     basket_modal = BasketModal()
     basket_modal.verify_that_basket_modal_is_open()
