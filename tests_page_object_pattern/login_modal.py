@@ -17,6 +17,12 @@ class LoginModal:
 
     def close_modal(self):
         browser.element(by.xpath('//button[@class="modal__close"]')).click()
+        from rozetka_home_page import RozetkaHomePage
+
+        return RozetkaHomePage
 
     def verify_modal_closing(self):
         browser.element(by.xpath('//div[@class="modal__content"]')).should_not(be.visible)
+        from rozetka_home_page import RozetkaHomePage
+
+        return RozetkaHomePage
