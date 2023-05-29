@@ -10,3 +10,5 @@ class RozetkaLoginPopup:
 
     def close(self):
         browser.element(by.xpath("//div[@class='modal__header']/button")).click()
+        from Omelchenko_RozetkaPageObjectTest.rozetka_home_page import RozetkaHomePage
+        return RozetkaHomePage()
