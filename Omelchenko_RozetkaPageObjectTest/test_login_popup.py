@@ -11,3 +11,7 @@ login_popup.verify_that_opened()
 
 home_page = login_popup.close()
 home_page.verify_that_login_popup_closed()
+
+login_popup.verify_that_login_popup_opened()
+turned_back_to_home = login_popup.close()
+turned_back_to_home.verify_that_login_popup_closed()
