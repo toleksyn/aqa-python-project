@@ -8,6 +8,7 @@ class RozetkaHomePage:
 
     def open(self):
         browser.open_url('https://rozetka.com.ua/ua/')
+        return self
 
     def search(self, search_keyword) -> RozetkaSearchResultsPage:
         search_field = browser.element(by.xpath("//input[@name='search']")).should(be.visible)

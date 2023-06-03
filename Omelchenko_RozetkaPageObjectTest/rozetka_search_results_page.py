@@ -16,10 +16,11 @@ class RozetkaSearchResultsPage:
     def get_product_name(self, product_number):
         return browser.element(by.xpath(format("(//span[@class='goods-tile__title'])[{0}]"
                                                .format(str(product_number))))).text
+
     def add_to_cart(self, product_number):
         browser.element(by.xpath("(//app-buy-button/button)[{0}]".format(str(product_number)))).click()
 
-    def open_product_page(self, product_number) -> RozetkaProductDescriptionPage:
+    def open_product_description_page(self, product_number) -> RozetkaProductDescriptionPage:
         browser.element(by.xpath("(//span[@class='goods-tile__title'])[{0}]".format(str(product_number)))).click()
         return RozetkaProductDescriptionPage()
 
