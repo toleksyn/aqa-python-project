@@ -22,7 +22,11 @@ class LoginModal:
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted"]')).click()
         return self
 
+<<<<<<< HEAD
     def verify_that_modal_closed(self):
         browser.element(by.xpath('//div[@class="modal__content"]')).should_not(be.visible)
         from rozetka_home_page import RozetkaHomePage
         return RozetkaHomePage()
+=======
+        return LoginModal()
+>>>>>>> a966a406169566376a61c2aaafdc9de0f1b2bb71
