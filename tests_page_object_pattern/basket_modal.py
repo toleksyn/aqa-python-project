@@ -1,20 +1,14 @@
 from selene import browser, by, be, have
-from selene import config
-import pytest
 
-class BasketModal:
+class RozetkaBasketModal:
 
-    def verify_basket_modal_title(self):
-        browser.element(by.xpath('//h3[@class="modal__heading"]'))
+    def get_original_product_price(self, product_number):
+        return browser.element(by.xpath(format("(//p[@class='cart-product__price'])[{0}]".format(str(product_number))))).text
 
-    def verify_close_modal_button(self):
-        browser.element(by.xpath('//button[@class="modal__close"]'))
+    def get_discounted_product_price(self, product_number):
+        return browser.element(by.xpath(format("(//p[@class='cart-product__price cart-product__price--red'])[{0}]"
+                                         .format(str(product_number))))).text
 
-    def verify_product_name_in_basket(self):
-        browser.element(by.xpath('//a[@class="cart-product__title"]'))
-
-    def verify_product_price_in_basket(self):
-        browser.element(by.xpath('//p[@class="cart-product__price"]'))
-
-    def verify_order_button(self):
-        browser.element(by.xpath('//a[@data-testid="cart-receipt-submit-order"]'))
+    def get_product_name(self, product_number):
+        return browser.element(by.xpath(format("(//div[@class='cart-product__main']/a)[{0}]"
+                                        .format(str(product_number))))).text

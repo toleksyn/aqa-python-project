@@ -1,27 +1,28 @@
 from selene import browser, by, be, have
-from selene import config
-import pytest
 
-from basket_modal import BasketModal
-from products_open import ProductsOpen
+from basket_modal import RozetkaBasketModal
+from product_details_page import ProductDetailsPage
 
 class RozetkaSearchResultsPage:
 
     def verify_search_results_at_least(self, number_of_results):
         browser.all('//a/span[contains(text(), "")]').should(have.size_greater_than_or_equal(number_of_results))
 
-    def verify_product_price_present(self, product_number):
-        product = browser.element(by.xpath('//rz-grid/ul/li'))
-        price_plp = browser.element(by.xpath(
-            "(//div[contains(@class, 'goods-tile__inner')])//span[contains(@class, 'goods-tile__price-value')]"))
+    def get_product_price(self, product_number):
+        return browser.element(by.xpath(format("(//span[@class='goods-tile__price-value'])[{0}]"
+                                               .format(str(product_number))))).text
 
-    def click_on_product(self, product_number):
-        product = browser.element(by.xpath('//rz-grid/ul/li'))
-        product.should(be.clickable).click()
+    def get_product_name(self, product_number):
+        return browser.element(by.xpath(format("(//span[@class='goods-tile__title'])[{0}]"
+                                               .format(str(product_number))))).text
 
-        return ProductsOpen()
+    def add_product_to_basket(self, product_number):
+        browser.element(by.xpath("(//app-buy-button/button)[{0}]".format(str(product_number)))).click()
 
-    def add_products_to_basket(self, product_number):
-        browser.element(by.xpath("(//div[@class='goods-tile__inner']//button[contains(@class, 'buy-button')])")).click()
+    def open_product_details_page(self, product_number) -> ProductDetailsPage:
+        browser.element(by.xpath(format("(//span[@class='goods-tile__title'])[{0}]".format(str(product_number))))).click()
+        return ProductDetailsPage()
 
-        return BasketModal()
+    def open_basket_modal(self) -> RozetkaBasketModal:
+        browser.element(by.xpath("//rz-cart/button")).click()
+        return RozetkaBasketModal()

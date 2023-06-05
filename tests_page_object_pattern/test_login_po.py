@@ -1,24 +1,14 @@
-from selene import browser, by, be, have
-from selene import config
-import pytest
+from selene import browser, by, be, have, config
 
 from rozetka_home_page import RozetkaHomePage
-from login_modal import LoginModal
+from rozetka_home_page import LoginModal
+from login_modal import LoginModalOpened
 
 def test_rozetka_search_po():
     config.timeout = 40
-    # Open http://rozetka.com.ua home page
+
     home_page = RozetkaHomePage().open()
-    # Click on the user icon in the top right corner
-    login_modal = LoginModal()
-    # Verify that the login modal is displayed
-    login_modal.open = RozetkaHomePage().open_login_modal()
-    login_modal.verify_email_field()
-    login_modal.verify_password_field()
-    login_modal.verify_login_button()
-    login_modal.verify_register_button()
-    login_modal.verify_facebook_button()
-    login_modal.verify_google_button()
-    # Close the login modal, verify it’s closed
-    login_modal.close_modal()
-    login_modal.verify_modal_closing()
+    login_modal = LoginModal().verify_opening_login_modal()
+    login_modal_opened_state = LoginModalOpened().verify_that_login_modal_opened()
+    login_modal_close = LoginModalOpened().close_modal()
+    login_modal_closed_state = LoginModal().verify_that_modal_closed()

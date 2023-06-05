@@ -1,22 +1,14 @@
-from selene import browser, by, be, have
-from selene import config
-import pytest
+from selene import browser, by, be, have, config
 
 from rozetka_home_page import RozetkaHomePage
-from products_open import ProductsOpen
 
 def test_rozetka_search_po():
     config.timeout = 40
-    # Open http://rozetka.com.ua home page
-    home_page = RozetkaHomePage()
-    home_page.open()
-    # Search for ‘iPhone’
-    results_page = home_page.search("iPhone")
-    # Verify that at least 5 result links are displayed and that each link text contains 'iPhone'
-    results_page.verify_search_results_at_least(5)
-    # Verify the 3rd product has a price, save the price
-    price_plp = results_page.verify_product_price_present(product_number=3)
-    # Click on the 3rd product and verify that the stored price and price on product page is equal
-    pdp_results_page = ProductsOpen()
-    price_pdp = pdp_results_page.verify_product_price_present_on_pdp(product_number=3)
-    assert price_plp == price_pdp, f'The stored price and price on product page is not equal'
+
+    home_page = RozetkaHomePage().open()
+    search_results = home_page.search("iPhone")
+    search_results.verify_search_results_at_least(5)
+    third_product_price_on_search_page = search_results.get_product_price(3)
+    third_product_details_page = search_results.open_product_details_page(3)
+    price_on_product_details_page = third_product_details_page.get_discounted_product_price()
+    assert third_product_price_on_search_page == price_on_product_details_page, f'The stored price and price on product page is not equal'
