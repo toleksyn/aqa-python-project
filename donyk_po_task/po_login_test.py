@@ -1,10 +1,9 @@
 from rozetka_home_page import HomePage
 
-home_page = HomePage()
-home_page.open()
+home_page = HomePage().open()
 
-login_popup = home_page.open_login_popup()
-login_popup.verify_login_popup_opened()
+login_popup = home_page.open_login()
+login_popup.verify_opened()
 
-close_login = login_popup.close_popup()
-close_login.verify_login_popup_closed()
+close = login_popup.close()
+close.verify_closed()
