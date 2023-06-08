@@ -16,4 +16,4 @@ third_product_price = search_results.get_product_price(3)
 third_product = search_results.open_product_description_page(3)
 product_price_on_product_description_page = third_product.get_discounted_product_price()
 
-assert third_product_price == product_price_on_product_description_page
+assert third_product_price == product_price_on_product_description_page, f'Product prices are not equal'

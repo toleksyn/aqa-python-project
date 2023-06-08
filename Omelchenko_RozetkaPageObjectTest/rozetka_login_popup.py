@@ -3,7 +3,7 @@ from selene import browser, by, be
 
 class RozetkaLoginPopup:
 
-    def verify_that_opened(self):
+    def verify_is_open(self):
         browser.element(by.xpath('//*[@id="auth_email"]')).should(be.visible)
         browser.element(by.xpath('//*[@id="auth_pass"]')).should(be.visible)
         browser.element(by.xpath("//div[@class='form__row auth-modal__form-bottom']/button[1]")).should(be.clickable)
