@@ -1,6 +1,6 @@
 from selene import browser, by, be, have
 
-class LoginModalOpened:
+class LoginModal:
 
     def verify_that_login_modal_opened(self):
         browser \
