@@ -18,6 +18,7 @@ class RozetkaSearchResultsPage:
 
     def add_product_to_basket(self, product_number):
         browser.element(by.xpath("(//app-buy-button/button)[{0}]".format(str(product_number)))).click()
+        return self
 
     def open_product_details_page(self, product_number) -> ProductDetailsPage:
         browser.element(by.xpath(format("(//span[@class='goods-tile__title'])[{0}]".format(str(product_number))))).click()
