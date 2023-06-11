@@ -12,7 +12,7 @@ class HomePage:
         from rozetka_search_results_page import SearchResultsPage
         return SearchResultsPage()
 
-    def open_login(self):
+    def open_login_popup(self):
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted"]')).click()
         from rozetka_login_popup import LoginPopup
         return LoginPopup()
