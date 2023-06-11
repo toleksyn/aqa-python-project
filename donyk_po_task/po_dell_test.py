@@ -10,8 +10,8 @@ fifth_product_price = search_results_page.get_product_price(5)
 add_to_basket_button = search_results_page.add_product_to_cart(5)
 
 cart_popup = search_results_page.open_cart_popup()
-added_product_name = cart_popup.get_product_name(5)
-added_product_price = cart_popup.get_product_price(5)
+added_product_name = cart_popup.get_product_name(1)
+added_product_price = cart_popup.get_product_price(1)
 
-assert added_product_name == fifth_product_name
-assert added_product_price == fifth_product_price
+assert added_product_name == fifth_product_name, f'Product names are different'
+assert added_product_price == fifth_product_price, f'Product prices are different'
