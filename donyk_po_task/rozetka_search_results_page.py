@@ -19,6 +19,7 @@ class SearchResultsPage:
 
     def add_product_to_cart(self, product_number):
         browser.element(by.xpath('(//button[@class="buy-button goods-tile__buy-button ng-star-inserted"])[{0}]'.format(str(product_number)))).click()
+        return self
 
     def open_cart_popup(self):
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted header__button--active"]')).click()
