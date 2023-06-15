@@ -17,7 +17,7 @@ class SearchResultsPage:
     def get_product_name(self, product_number):
         return browser.element(by.xpath(format('(//span[@class="goods-tile__title"])[{0}]'.format(str(product_number))))).text
 
-    def add_product_to_cart(self, product_number):
+    def add_to_cart(self, product_number):
         browser.element(by.xpath('(//button[@class="buy-button goods-tile__buy-button ng-star-inserted"])[{0}]'.format(str(product_number)))).click()
         return self
 
