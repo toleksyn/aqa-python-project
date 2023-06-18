@@ -10,7 +10,6 @@ class LoginModal:
             .element(by.xpath('//button[@class="auth-modal__register-link button button--link ng-star-inserted"]')).should(be.clickable) \
             .element(by.xpath('//app-slider/div/button[1]')).should(be.clickable) \
             .element(by.xpath('//app-slider/div/button[2]')).should(be.clickable)
-        return self
 
     def close_modal(self):
         browser.element(by.xpath('//button[@class="modal__close"]')).click()
