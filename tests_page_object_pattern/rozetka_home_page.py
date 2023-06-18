@@ -19,7 +19,3 @@ class RozetkaHomePage:
     def open_login_modal(self) -> LoginModal:
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted"]')).click()
         return LoginModal()
-
-    def verify_that_modal_closed(self):
-        browser.element(by.xpath('//div[@class="modal__content"]')).should_not(be.visible)
-        from rozetka_home_page import RozetkaHomePage
