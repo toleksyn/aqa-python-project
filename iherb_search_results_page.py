@@ -5,7 +5,6 @@ from pages.iherb_product_details_page import IherbProductDetailsPage
 class IherbSearchResultsPage:
     def verify_search_results_at_least(self, number_of_search_results):
         browser.all(by.xpath("//a[@class='absolute-link product-link']")).should(have.size_greater_than_or_equal(number_of_search_results))
-        return IherbSearchResultsPage
 
     def get_reviews_count_from_search_results(self, number_of_search_results):
         return browser.element(by.xpath(f"(//a[@class='rating-count'])[{number_of_search_results}]")).get(query.text)
