@@ -14,7 +14,7 @@ def test_iherb_the_second_task():
     search_result_page.verify_search_results_at_least(5)
 
     # In the filter section, check the NOW Foods checkbox
-    search_result_page.click_the_filter_checkbox("NOW Foods")
+    search_result_page.set_the_filter("NOW Foods")
 
     # Verify that all displayed products title have ‘NOW Foods’ in the name
     filter_name = "NOW Foods"
