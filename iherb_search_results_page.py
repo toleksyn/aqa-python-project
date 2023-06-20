@@ -13,7 +13,7 @@ class IherbSearchResultsPage:
         browser.element(by.xpath(f"//a[@data-ga-product-position='{number_of_search_results}']")).click()
         return IherbProductDetailsPage()
 
-    def click_the_filter_checkbox(self, filter_name):
+    def set_the_filter(self, filter_name):
         browser.element(by.xpath(f'//label[contains(text(),"{filter_name}")]')).click()
         return self
 
