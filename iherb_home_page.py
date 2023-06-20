@@ -11,5 +11,5 @@ class IherbHomePage:
         return IherbSearchResultsPage()
 
     def open_the_login_page(self):
-        browser.element(by.xpath('//a[@class="iherb-header-signed-out icon-header_signed-out sign-in tablet-icon-login-link"]')).click()
-        return self
+        browser.element(by.xpath('//a[contains(@class, "sign-in")]')).click()
+        return IherbLoginPage()
