@@ -17,6 +17,7 @@ class IherbSearchResultsPage:
         browser.element(by.xpath(f'//label[contains(text(),"{filter_name}")]')).click()
         return self
 
-    def get_filter_name_from_all_product_titles(self):
-        browser.all(by.xpath(f'(//a[contains(@title, "NOW Foods")])')).get(query.text)
-        return self
+    def verify_that_products_include_filter_name(self, filter_name_from_product):
+        products_include_filter_name = browser.all(by.xpath(f'(//a[contains(@title, "{filter_name_from_product}")])'))
+        for element in products_include_filter_name:
+            element.should(be.visible)
