@@ -22,8 +22,8 @@ class IHerbSearchResultsPage:
         return self
 
     def verify_that_all_products_are_filtered_by(self, filter_value):
-        browser.all(by.xpath("//div[@class='product-inner product-inner-wide']/div/div/bdi")\
-                    .should(have.texts(filter_value)))
+        browser.element(by.xpath("//div[@class='product-inner product-inner-wide']/div/div/bdi[contains(text(), '{}')]"
+                                 .format(str(filter_value))))
 
     def get_product_name(self, product_number):
         return browser.element(by.xpath("(//div[@class='product-inner product-inner-wide']/div/div/bdi)[{0}]"
@@ -32,3 +32,7 @@ class IHerbSearchResultsPage:
     def add_to_cart(self, product_number) -> IherbCartModal:
         browser.element(by.xpath("(//button[@name='AddToCart'])[{0}]".format(str(product_number)))).click()
         return IherbCartModal()
+
+    def change_to_list_view(self):
+        browser.element(by.xpath('//*[name()="svg" and @data-ga-event-label="Click-list view"]')).click()
+        return self

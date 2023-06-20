@@ -3,14 +3,16 @@
 # Verify at least 5 products are displayed
 # Save the reviews count for 5th product and click on it
 # Verify the reviews count on product page is the same as in the previous step
+from time import sleep
+
 from Omelchenko_iHerbTest.iherb_home_page import IherbHomePage
 
 
 home_page = IherbHomePage().open()
 
-# site_preference_drawer = home_page.open_site_preference_drawer()
-# home_page = site_preference_drawer.change_language('English')
-
+site_preference_modal = home_page.open_site_preference_modal()
+home_page = site_preference_modal.change_language('English')
+sleep(3)
 search_results = home_page.search('vitamin a')
 search_results.verify_that_search_results_have_size_at_least(5)
 

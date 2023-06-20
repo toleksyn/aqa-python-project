@@ -1,6 +1,4 @@
-from time import sleep
-
-from selene import browser, by, be, have
+from selene import browser, by
 
 
 class IherbSitePreferenceModal:
