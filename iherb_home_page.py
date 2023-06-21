@@ -1,8 +1,8 @@
 from selene import browser, by
 
-# from iherbtestvenv.ccl import CountryCurrencyLanguage
-from iherbtestvenv.iherb_search_page import IherbSearchPage
-from iherbtestvenv.sign_in_page import SignInPage
+from iherbtestvenv.iherb_site_preference_modal import IherbSitePreferenceModal
+from iherbtestvenv.iherb_search_results_page import IherbSearchResultsPage
+from iherbtestvenv.iherb_sign_in_page import IherbSignInPage
 
 class IherbHomePage:
 
@@ -10,17 +10,17 @@ class IherbHomePage:
         browser.open("https://www.iherb.com/")
         return self
 
-    def search(self, keyword) -> IherbSearchPage:
+    def search(self, keyword) -> IherbSearchResultsPage:
         browser \
             .element(by.xpath('//input[@class="iherb-header-search-input"]')) \
             .type(keyword) \
             .press_enter()
-        return IherbSearchPage()
+        return IherbSearchResultsPage()
 
-    def open_sign_in_page(self) -> SignInPage:
+    def open_sign_in_page(self) -> IherbSignInPage:
         browser.element(by.xpath('//*[@id="iherb-account"]/div/span/a')).click()
-        return SignInPage()
+        return IherbSignInPage()
 
-    # def open_ccl(self):
-    #     browser.element(by.xpath('//div[@class="selected-country-wrapper"]')).click()
-    #     return CountryCurrencyLanguage()
+    def open_site_preferences_modal(self) -> IherbSitePreferenceModal:
+        browser.element(by.xpath('//div[@class="selected-country-wrapper"]')).click()
+        return IherbSitePreferenceModal()

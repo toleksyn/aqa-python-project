@@ -1,15 +1,21 @@
-from selene import browser, by, be, have, config
+from selene import have
 
 from iherbtestvenv.iherb_home_page import IherbHomePage
 
-def test_iherb_search_po():
-    config.timeout = 40
+home_page = IherbHomePage().open()
 
-    home_page = IherbHomePage().open()
-    results_page = home_page.search('vitamin d')
-    results_page.verify_search_results_at_least(5)
+site_preference_modal = home_page.open_site_preferences_modal()
+home_page = site_preference_modal.select_language('English')
 
-    now_foods_checkbox = results_page.verify_that_now_foods_checkbox_is_displayed_on_the_search_page()
-    now_foods_in_the_name = results_page.get_all_displayed_products_with_now_foods_in_the_name(product_name="NOW Foods")
+search_results_page = home_page.search('vitamin d')
+search_results_page.verify_search_results_at_least(5)
 
-    assert now_foods_in_the_name, "Not all displayed products have 'Now Foods' in the name"
+search_results_page.set_brands_filter('NOW Foods')
+
+first_product_name = search_results_page.get_product_name(1)
+last_product_name = search_results_page.get_product_name(48)
+twenty_fourth_product_name = search_results_page.get_product_name(24)
+
+assert first_product_name.should(have.text("NOW Foods")), f"The product has no 'Now Foods' name"
+assert last_product_name.should(have.text("NOW Foods")), f"The product has no 'Now Foods' name"
+assert twenty_fourth_product_name.should(have.text("NOW Foods")), f"The product has no 'Now Foods' name"
