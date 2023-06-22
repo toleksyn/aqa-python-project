@@ -1,4 +1,4 @@
-from selene import browser, by, have
+from selene import browser, by, be, have
 
 
 class LoginLandingPage:
@@ -6,7 +6,7 @@ class LoginLandingPage:
     def log_in_with_iherb_account(self, username, password):
         self.set_username(username)
         self.set_password(password)
-        browser.element(by.xpath("//button[@id='sign_in_button']")).click()
+        browser.element(by.xpath("//button[@id='sign_in_button']")).assure(be.visible, timeout=20).click()
         from Omelchenko_iHerbTest.iherb_home_page import IherbHomePage
         return IherbHomePage()
 

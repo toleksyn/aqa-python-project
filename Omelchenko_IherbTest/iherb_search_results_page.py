@@ -1,4 +1,4 @@
-from selene import browser, by, have
+from selene import browser, by, be, have
 
 from Omelchenko_iHerbTest.iherb_cart_modal import IherbCartModal
 from Omelchenko_iHerbTest.iherb_product_details_page import IherbProductDetailsPage
@@ -19,6 +19,7 @@ class IHerbSearchResultsPage:
 
     def set_brands_filter(self, filter_value):
         browser.element(by.xpath("//li[@data-keyword='{}']".format(filter_value))).click()
+        browser.element(by.xpath("//div[@class='applied-filters']")).assure(be.visible, timeout=15)
         return self
 
     def verify_that_all_products_are_filtered_by(self, filter_value):

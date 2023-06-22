@@ -4,8 +4,8 @@ from selene import browser, by, be
 class IherbCheckoutPage:
 
     def get_product_name(self, product_number):
-        browser.element(by.xpath("//*[name()='svg' and @class='LandingPanel__ToggleIcon-sc-bh59r1-4 fUUZvX']"))\
-            .should(be.visible).click()
+        browser.element(by.xpath("//*[name()='svg' and @class='LandingPanel__ToggleIcon-sc-bh59r1-4 fUUZvX']")) \
+            .assure(be.existing, timeout=15).click()
         return self.get_product_brand(product_number) + ', ' + self.get_product_display_name(product_number)
 
     def get_product_display_name(self, product_number):

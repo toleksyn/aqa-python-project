@@ -21,5 +21,5 @@ class IherbHomePage:
         return IHerbSearchResultsPage()
 
     def open_login_landing_page(self) -> LoginLandingPage:
-        browser.element(by.xpath("//div[@class='iherb-header-account-sign-in']/span/a")).click()
+        browser.element(by.xpath('//*[@id="iherb-account"]/div/span/a')).assure(be.existing, timeout=15).click()
         return LoginLandingPage()

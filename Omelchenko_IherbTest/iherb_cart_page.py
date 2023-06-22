@@ -6,7 +6,7 @@ from Omelchenko_iHerbTest.iherb_checkout_page import IherbCheckoutPage
 class IherbCartPage:
 
     def verify_product_added_to_cart(self):
-        browser.element(by.xpath("//div[@data-qa-element='cart-product-list-wrapper']")).should(be.in_dom)
+        browser.element(by.xpath("//div[@data-qa-element='cart-product-list-wrapper']")).assure(be.existing, timeout=15)
 
     def open_checkout_page(self) -> IherbCheckoutPage:
         browser.element(by.xpath("//div[@class='css-1ijv08']/a")).click()
