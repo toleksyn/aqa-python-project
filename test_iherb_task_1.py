@@ -1,12 +1,9 @@
 from pages.iherb_home_page import IherbHomePage
-from pages.iherb_search_results_page import IherbSearchResultsPage
-from pages.iherb_product_details_page import IherbProductDetailsPage
 
 
 def test_iherb_the_first_task():
     # Open iherb home page
-    home_page = IherbHomePage()
-    home_page.open()
+    home_page = IherbHomePage().open()
 
     # Search for ‘vitamin a’
     search_result_page = home_page.search("vitamin a")
@@ -24,4 +21,3 @@ def test_iherb_the_first_task():
     review_count_from_product_page = product_page.get_reviews_count_from_product_page()
 
     assert review_count_from_search_results == review_count_from_product_page, f'Reviews counts are not equal'
-
