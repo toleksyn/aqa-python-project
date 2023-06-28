@@ -20,6 +20,6 @@ fifth_product = search_results_page.add_to_cart(number_of_product)
 
 cart_page = fifth_product.open_cart_page()
 checkout_page = cart_page.open_checkout_page()
-fifth_product_name_checkout = checkout_page.get_product_name()
+fifth_product_name_checkout = checkout_page.get_product_name(1)
 
 assert fifth_product_name_cart == fifth_product_name_checkout, f'Product names are different'

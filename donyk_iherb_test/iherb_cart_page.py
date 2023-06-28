@@ -10,3 +10,9 @@ class CartPage:
         browser.element(by.xpath('//div[@class="css-1ijv08"]/a')).click()
         from iherb_checkout_page import CheckoutPage
         return CheckoutPage()
+
+    def get_product_name(self, product_number):
+        return browser.element(by.xpath('(//a[@class="css-1wm8slt"])[{0}]'.format(str(product_number)))).text
+
+    def get_product_price(self, product_number):
+        return browser.element(by.xpath('(//div[@class="css-1wxlbl4"])[{0}]'.format(str(product_number)))).text

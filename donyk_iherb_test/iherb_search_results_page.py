@@ -27,5 +27,8 @@ class SearchResultsPage:
         return CartPopup()
 
     def change_to_list_view(self):
-        browser.element(by.xpath('//*[name()="svg" and @data-ga-event-label="Click-list view"]')).click()
+        browser.element(by.xpath('//*[name()="svg"][@class="icon icon-list-view toggle-view-type selected"]')).click()
         return self
+
+    def get_product_price(self, product_number):
+        return browser.element(by.xpath('(//div[@class="product-price-top"])[{0}]'.format(str(product_number)))).text
