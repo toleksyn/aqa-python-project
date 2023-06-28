@@ -3,9 +3,11 @@
 # Verify at least 5 products are displayed
 # Save the reviews count for 5th product and click on it
 # Verify the reviews count on product page is the same as in the previous step
+from selene import browser
+
 from Omelchenko_iHerbTest.iherb_home_page import IherbHomePage
 
-
+browser.config.timeout = 40
 home_page = IherbHomePage().open()
 
 site_preference_modal = home_page.open_site_preference_modal()

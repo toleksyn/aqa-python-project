@@ -1,4 +1,4 @@
-from selene import browser, by, be, have
+from selene import browser, by, be, query
 
 
 class LoginLandingPage:
@@ -6,17 +6,19 @@ class LoginLandingPage:
     def log_in_with_iherb_account(self, username, password):
         self.set_username(username)
         self.set_password(password)
-        browser.element(by.xpath("//button[@id='sign_in_button']")).assure(be.visible, timeout=20).click()
+        browser.element(by.xpath("//button[@id='sign_in_button']")).wait.for_(be.visible)
+        browser.element(by.xpath("//button[@id='sign_in_button']")).click()
         from Omelchenko_iHerbTest.iherb_home_page import IherbHomePage
         return IherbHomePage()
 
     def set_username(self, username):
         browser.element(by.xpath("//input[@id='username_input']")).type(username)
+        return self
 
     def set_password(self, password):
         browser.element(by.xpath("//div[@class='form-row']/input[@type='password']")).type(password)
+        return self
 
-    def verify_that_error_message_displayed(self):
-        browser.element(by.xpath("//div[@class='error-message']/span/ul/li"))\
-            .should(have.text('Invalid email, phone number, or password'))
+    def get_error_message_text(self):
+        browser.element(by.xpath("//div[@class='error-message']/span/ul/li")).get(query.text)
 

@@ -12,14 +12,16 @@ class IherbHomePage:
         return self
 
     def open_site_preference_modal(self) -> IherbSitePreferenceModal:
+        browser.element(by.xpath("//div[@class='country-select']")).wait.for_(be.visible)
         browser.element(by.xpath("//div[@class='country-select']")).click()
         return IherbSitePreferenceModal()
 
     def search(self, search_keyword) -> IHerbSearchResultsPage:
-        browser.element(by.xpath("//input[@id='txtSearch']")).should(be.blank and be.visible)\
-            .type(search_keyword).press_enter()
+        search_box = browser.element(by.xpath("//input[@id='txtSearch']"))
+        search_box.wait.for_(be.visible and be.blank)
+        search_box.type(search_keyword).press_enter()
         return IHerbSearchResultsPage()
 
     def open_login_landing_page(self) -> LoginLandingPage:
-        browser.element(by.xpath('//*[@id="iherb-account"]/div/span/a')).assure(be.existing, timeout=15).click()
+        browser.element(by.xpath('//*[@id="iherb-account"]/div/span/a')).click()
         return LoginLandingPage()
