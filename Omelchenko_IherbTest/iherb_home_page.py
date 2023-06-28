@@ -1,6 +1,6 @@
 from selene import browser, by, be
 
-from Omelchenko_iHerbTest.iherb_login_landing_page import LoginLandingPage
+from Omelchenko_iHerbTest.iherb_login_landing_page import IherbLoginLandingPage
 from Omelchenko_iHerbTest.iherb_search_results_page import IHerbSearchResultsPage
 from Omelchenko_iHerbTest.iherb_site_preference_modal import IherbSitePreferenceModal
 
@@ -22,6 +22,6 @@ class IherbHomePage:
         search_box.type(search_keyword).press_enter()
         return IHerbSearchResultsPage()
 
-    def open_login_landing_page(self) -> LoginLandingPage:
+    def open_login_landing_page(self) -> IherbLoginLandingPage:
         browser.element(by.xpath('//*[@id="iherb-account"]/div/span/a')).click()
-        return LoginLandingPage()
+        return IherbLoginLandingPage()

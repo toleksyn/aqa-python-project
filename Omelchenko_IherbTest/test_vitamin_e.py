@@ -19,11 +19,10 @@ search_results.verify_that_search_results_have_size_at_least(5)
 
 product_number = 5
 fifth_product_name = search_results.get_product_name(product_number)
-search_results.change_to_list_view()
-fifth_product = search_results.add_to_cart(product_number)
+fifth_product = search_results.add_to_cart_in_grid_view(product_number)
 
 cart_page = fifth_product.open_cart_page()
-checkout_page = cart_page.open_checkout_page()
+checkout_page = cart_page.open_checkout_page_while_logged_in()
 checkout_page.select_shipping_address(1)
 
 fifth_product_name_on_checkout = checkout_page.get_product_name(1)
