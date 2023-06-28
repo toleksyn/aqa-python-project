@@ -9,6 +9,10 @@ class IherbSignInPage:
         from iherbtestvenv.iherb_home_page import IherbHomePage
         return IherbHomePage()
 
+    def verify_that_opened(self):
+        browser.element(by.xpath("//input[@id='username_input']")).should(be.visible and be.blank)
+        browser.element(by.xpath("//div[@class='form-row']/input[@type='password']")).should(be.visible and be.blank)
+
     def verify_that_error_message_displayed(self):
         browser.element(by.xpath("//div[@class='error-message']/span/ul/li"))\
             .should(have.text('Invalid email, phone number, or password'))
@@ -20,5 +24,3 @@ class IherbSignInPage:
         browser.element(by.xpath('//div[@class="exit"]')).click()
         from iherbtestvenv.iherb_home_page import IherbHomePage
         return IherbHomePage()
-
-
