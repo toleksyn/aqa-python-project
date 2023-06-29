@@ -11,8 +11,8 @@ class IherbCheckoutPage:
         return IherbCartPage()
 
     def approve_credit_card_number(self):
-        continue_button = browser.element(by.xpath('//button[@id="credit-card-continue-button"]')).click
+        browser.element(by.xpath('//button[@id="credit-card-continue-button"]')).click
         return IherbCartPage()
 
     def place_oredr(self):
-        place_oredr_button = browser.element(by.xpath('//button[@id="place-order-button"]')).click
+        browser.element(by.xpath('//button[@id="place-order-button"]')).click
