@@ -6,7 +6,7 @@ class IherbCheckoutPage:
         browser.element(by.xpath('//div[@class="LandingPanel__ToggleText-sc-bh59r1-3 clVDdW"]')).click()
         return IherbCheckoutPage()
 
-    def get_product_name_from_checkout(self):
-        browser.all(f'(//div[contains(text(),"")])').get(query)
-        return query
+    def get_product_name(self):
+        browser.all(f'(//div[@class="List__DisplayName-sc-1mvgpt5-4 djMfWv"]').get(query.text)
+        return self
 
