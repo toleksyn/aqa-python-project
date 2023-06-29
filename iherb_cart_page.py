@@ -8,5 +8,5 @@ class IherbCartPage:
         browser.all(by.xpath('//a[@data-qa-element="product-item-title"]')).wait_until(be.visible)
 
     def procced_to_checkout(self):
-        procced_to_checkout_button = browser.element(by.xpath('//a[@data-ga-element="btnToCheckout"]')).click()
+        browser.element(by.xpath('//a[@data-ga-element="btnToCheckout"]')).click()
         return IherbCheckoutPage()
