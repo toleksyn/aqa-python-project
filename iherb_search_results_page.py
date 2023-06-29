@@ -28,11 +28,9 @@ class IherbSearchResultsPage:
         return IherbSearchResultsPage()
 
     def hover_to_the_add_cart_button(self, product_number):
-        xpath = f'(//button[@name="AddToCart"])[{product_number}]'
-        browser.element(by.xpath(xpath)).hover()
+        browser.element(by.xpath(f'(//button[@name="AddToCart"])[{product_number}]')).hover()
         return self
 
     def add_product_to_the_cart(self, product_number):
-        xpath = f'(//button[@name="AddToCart"])[{product_number}]'
-        browser.element(by.xpath(xpath)).click()
+        browser.element(by.xpath(f'(//button[@name="AddToCart"])[{product_number}]')).click()
         return IherbCartModal()
