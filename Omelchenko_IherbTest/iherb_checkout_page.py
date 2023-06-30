@@ -1,5 +1,6 @@
 from selene import browser, by, query, be
 
+from Omelchenko_iHerbTest.iherb_thank_you_page import IherbThankYouPage
 from Omelchenko_iHerbTest.iherb_update_payment_page import IherbUpdatePaymentPage
 
 
@@ -30,11 +31,15 @@ class IherbCheckoutPage:
         browser.element(by.xpath("//button[@data-testid='address-continue-button']")).click()
         return self
 
-    def verify_credit_card(self, card_number):
+    def confirm_credit_card(self, card_number):
         browser.element(by.xpath("//*[@id='encryptedCardNumber']".format(str(card_number)))).type(card_number)
         browser.element(by.xpath("//*[@id='credit-card-continue-button']")).click()
         return self
 
-    def place_order(self) -> IherbUpdatePaymentPage:
+    def place_order_with_invalid_card(self) -> IherbUpdatePaymentPage:
         browser.element(by.xpath("//*[@id='place-order-button']")).click()
         return IherbUpdatePaymentPage()
+
+    def place_order_with_valid_card(self) -> IherbThankYouPage:
+        browser.element(by.xpath("//*[@id='place-order-button']")).click()
+        return IherbThankYouPage()

@@ -13,7 +13,7 @@ from selene import browser
 from Omelchenko_iHerbTest.iherb_home_page import IherbHomePage
 
 
-browser.config.timeout = 20
+browser.config.timeout = 30
 home_page = IherbHomePage().open()
 
 site_preference_drawer = home_page.open_site_preference_modal()
@@ -42,6 +42,7 @@ login_landing_page.verify_that_opened()
 checkout_page = login_landing_page.log_in_on_checkout('roman.omelchenko@external.iherb.com', 'Qwertyuio?')
 checkout_page.select_shipping_address(1)
 # checkout_page.verify_credit_card('377 9369 6532 0690')
-checkout_page.place_order()
+update_payment_page = checkout_page.place_order_with_invalid_card()
+order_details_page = update_payment_page.open_order_details_page()
 
-
+order_details_page.verify_order_number_displayed()

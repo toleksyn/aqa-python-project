@@ -1,0 +1,2 @@
+class IherbThankYouPage:
+    pass
