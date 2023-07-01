@@ -2,7 +2,7 @@ from selene import browser, by, be, have
 
 class LoginModal:
 
-    def verify_that_login_modal_opened(self):
+    def verify_opened(self):
         browser.element(by.xpath('//input[@type="email"]')).should(be.clickable)
         browser.element(by.xpath('//input[@type="password"]')).should(be.clickable)
         browser.element(by.xpath('//button[@class="button button--large button--green auth-modal__submit ng-star-inserted"]')).should(be.clickable)
