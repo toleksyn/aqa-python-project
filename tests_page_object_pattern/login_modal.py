@@ -9,8 +9,8 @@ class LoginModal:
         browser.element(by.xpath('//button[@class="auth-modal__register-link button button--link ng-star-inserted"]')).should(be.clickable)
         browser.element(by.xpath('//app-slider/div/button[1]')).should(be.clickable)
         browser.element(by.xpath('//app-slider/div/button[2]')).should(be.clickable)
-
-    def verify_closed(self):
-        browser.element(by.xpath('//button[@class="modal__close"]')).click()
-        from rozetka_home_page import RozetkaHomePage
+    
+    def close(self):
+        browser.element(by.xpath("//div[@class='modal__header']/button")).click()
+        from Omelchenko_RozetkaPageObjectTest.rozetka_home_page import RozetkaHomePage
         return RozetkaHomePage()
