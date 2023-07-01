@@ -10,7 +10,7 @@ class LoginModal:
         browser.element(by.xpath('//app-slider/div/button[1]')).should(be.clickable)
         browser.element(by.xpath('//app-slider/div/button[2]')).should(be.clickable)
 
-    def close_modal(self):
+    def verify_closed(self):
         browser.element(by.xpath('//button[@class="modal__close"]')).click()
         from rozetka_home_page import RozetkaHomePage
         return RozetkaHomePage()
