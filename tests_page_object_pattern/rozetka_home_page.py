@@ -19,3 +19,9 @@ class RozetkaHomePage:
     def open_login_modal(self) -> LoginModal:
         browser.element(by.xpath('//button[@class="header__button ng-star-inserted"]')).click()
         return LoginModal()
+
+    def verify_that_login_popup_closed(self):
+        browser.element(by.xpath("//input[@name='search']")).should(be.visible and be.clickable)
+        browser.element(by.xpath("//app-slider/div/button[1]")).should(be.visible and be.clickable)
+        browser.element(by.xpath("//app-slider/div/button[2]")).should(be.visible and be.clickable)
+        browser.element(by.xpath("//rz-top-slider/ul/li/a")).should(be.visible and be.clickable)
