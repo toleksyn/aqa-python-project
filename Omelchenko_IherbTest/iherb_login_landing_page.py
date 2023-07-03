@@ -28,7 +28,7 @@ class IherbLoginLandingPage:
         return self
 
     def get_error_message_text(self):
-        browser.element(by.xpath("//div[@class='error-message']/span/ul/li")).get(query.text)
+        return browser.element(by.xpath("//div[@class='error-message']/span/ul/li")).get(query.text)
 
     def verify_that_opened(self):
         browser.element(by.xpath("//input[@id='username_input']")).should(be.visible and be.blank)
