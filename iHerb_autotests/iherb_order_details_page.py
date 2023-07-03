@@ -1,7 +1,6 @@
-from selene import browser, by, query
+from selene import browser, by, be
 
 class IherbOrderDetailsPage:
 
-    def verify_order_number(self, order_number):
-        return browser.element(by.xpath("//span[contains(text(),'')][{0}]"
-                                        .format(str(order_number)))).get(query.text)
+    def verify_order_number_is_displayed(self):
+        browser.element(by.xpath("(//div[@class='order-info-span rtl']/span[2])[1]")).should(be.visible)

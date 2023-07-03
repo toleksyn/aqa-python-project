@@ -1,8 +1,13 @@
 from selene import browser, by, query
 
 from iherbtestvenv.iherb_checkout_page import IherbCheckoutPage
+from iherbtestvenv.iherb_sign_in_page import IherbSignInPage
 
 class IherbCartPage:
+
+    def open_checkout_page_while_not_logged_in(self) -> IherbSignInPage:
+        browser.element(by.xpath("//div[@class='css-1ijv08']/a")).click()
+        return IherbSignInPage()
 
     def verify_product_added_to_the_cart(self, product_number):
         browser.element(by.xpath('//div[@data-qa-element="line-item"][{0}]'.\

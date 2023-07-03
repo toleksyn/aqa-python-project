@@ -1,16 +1,14 @@
-# Several steps need to be discussed
-
 from selene import browser
 
 from iherbtestvenv.iherb_home_page import IherbHomePage
 
 def test_search_vitamin_k_2():
 
-    browser.config.timeout = 20
+    browser.config.timeout = 30
 
     home_page = IherbHomePage().open()
 
-    site_preference_modal = home_page.open_site_preferences_modal()
+    site_preference_modal = home_page.open_site_preference_modal()
     home_page = site_preference_modal.select_language('English')
 
     search_results_page = home_page.search('vitamin k2')
@@ -31,7 +29,11 @@ def test_search_vitamin_k_2():
     assert third_product_name == third_product_name_in_cart, f'Product names are not equal'
     assert third_product_price == third_product_price_in_cart, f'Product prices are not equal'
 
-    login_page = home_page.open_sign_in_page()
-    login_page.verify_that_opened()
-    checkout_page = login_page.sign_in(login="auto-tests@yopmail.com", password="Test1234!")
-    checkout_page.place_order()
+    login_landing_page = cart_page.open_checkout_page_while_not_logged_in()
+    login_landing_page.verify_that_opened()
+    checkout_page = login_landing_page.log_in_on_checkout(login="auto-tests@yopmail.com", password="Test1234!")
+    checkout_page.select_shipping_address(1)
+    payment_update_page = checkout_page.place_order_with_incorrect_card()
+    order_details_page = payment_update_page.navigate_to_order_summary_page()
+
+    order_details_page.verify_order_number_is_displayed()

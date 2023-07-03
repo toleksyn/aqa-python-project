@@ -7,7 +7,7 @@ def test_search_vitamin_a():
 
     home_page = IherbHomePage().open()
 
-    site_preference_modal = home_page.open_site_preferences_modal()
+    site_preference_modal = home_page.open_site_preference_modal()
     site_preference_modal.select_language('English')
 
     search_results_page = home_page.search('vitamin a')

@@ -21,6 +21,6 @@ class IherbHomePage:
         browser.element(by.xpath('//*[@id="iherb-account"]/div/span/a')).click()
         return IherbSignInPage()
 
-    def open_site_preferences_modal(self) -> IherbSitePreferenceModal:
+    def open_site_preference_modal(self) -> IherbSitePreferenceModal:
         browser.element(by.xpath('//div[@class="selected-country-wrapper"]')).click()
         return IherbSitePreferenceModal()

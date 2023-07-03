@@ -1,5 +1,8 @@
 from selene import browser, by, be, query
 
+from iherbtestvenv.iherb_payment_update_page import IherbPaymentUpdatePage
+from iherbtestvenv.iherb_thank_you_page import IherbThankYouPage
+
 class IherbCheckoutPage:
 
     def get_product_name(self, product_number):
@@ -20,3 +23,17 @@ class IherbCheckoutPage:
             "(//div[@class='List__ProductDetails-sc-1mvgpt5-17 gtRIby']/div[2])[{0}]".format(str(product_number))))
         product_name.wait.for_(be.visible)
         return product_name.get(query.text)
+
+    def select_shipping_address(self, address_number):
+        browser.element(by.xpath("(//div[@class='Item__AddressInfo-sc-38bdg3-6 gxdBoo'])[{0}]"
+                                 .format((str(address_number))))).click()
+        browser.element(by.xpath("//button[@data-testid='address-continue-button']")).click()
+        return self
+
+    def place_order_with_incorrect_card(self) -> IherbPaymentUpdatePage:
+        browser.element(by.xpath("//*[@id='place-order-button']")).click()
+        return IherbPaymentUpdatePage()
+
+    def place_order_with_correct_card(self) -> IherbThankYouPage:
+        browser.element(by.xpath("//*[@id='place-order-button']")).click()
+        return IherbThankYouPage()

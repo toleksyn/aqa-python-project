@@ -7,11 +7,10 @@ def test_search_vitamin_e():
 
     home_page = IherbHomePage().open()
 
-    site_preference_modal = home_page.open_site_preferences_modal()
+    site_preference_modal = home_page.open_site_preference_modal()
     site_preference_modal.select_language('English')
 
-    sign_in_page = home_page.open_sign_in_page()
-    sign_in_page.sign_in(login="auto-tests@yopmail.com", password="Test1234!")
+    home_page.open_sign_in_page().log_in(login="auto-tests@yopmail.com", password="Test1234!")
 
     search_results_page = home_page.search('vitamin e')
     search_results_page.verify_search_results_at_least(5)
