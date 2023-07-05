@@ -1,13 +1,13 @@
-from selene import browser, by, have
+from selene import browser, by, have, query, be
 
 
 class SearchResultsPage:
 
-    def verify_size_at_least(self, number_of_results):
-        browser.all(by.xpath('//a[@class="absolute-link product-link"]')).should(have.size_at_least(number_of_results))
+    def verify_search_results_at_least(self, number_of_products):
+        browser.all(by.xpath('//a[@class="absolute-link product-link"]')).should(have.size_at_least(number_of_products))
 
     def get_product_reviews_count(self, product_number):
-        return browser.element(by.xpath(format('(//a[@class="rating-count"])[{0}]/span'.format(str(product_number))))).text
+        return browser.element(by.xpath(format('(//a[@class="rating-count"])[{0}]/span'.format(str(product_number))))).get(query.text)
 
     def open_product_page(self, product_number):
         browser.element(by.xpath('(//a[@class="absolute-link product-link"])[{0}]'.format(str(product_number)))).click()
@@ -16,10 +16,11 @@ class SearchResultsPage:
 
     def set_filter(self, filter):
         browser.element(by.xpath('//li[@data-keyword="{}"]'.format(filter))).click()
+        browser.element(by.xpath('//div[@class="applied-filters"]')).wait.until(be.visible)
         return self
 
     def get_product_name(self, product_number):
-        return browser.element(by.xpath('(//div[@class="product-title"])[{0}]'.format(str(product_number)))).text
+        return browser.element(by.xpath('(//div[@class="product-title"])[{0}]'.format(str(product_number)))).get(query.text)
 
     def add_to_cart(self, product_number):
         browser.element(by.xpath('(//button[@name="AddToCart"])[{0}]'.format(str(product_number)))).click()
@@ -31,4 +32,4 @@ class SearchResultsPage:
         return self
 
     def get_product_price(self, product_number):
-        return browser.element(by.xpath('(//div[@class="product-price-top"])[{0}]'.format(str(product_number)))).text
+        return browser.element(by.xpath('(//div[@class="product-price-top"])[{0}]'.format(str(product_number)))).get(query.text)

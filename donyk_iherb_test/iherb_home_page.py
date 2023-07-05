@@ -13,7 +13,7 @@ class HomePage:
         return SearchResultsPage()
 
     def open_login_page(self):
-        browser.element(by.xpath('//a[@class="iherb-header-signed-out icon-header_signed-out sign-in tablet-icon-login-link"]')).click()
+        browser.element(by.xpath('//div[@id="iherb-account"]/div/span/a')).click()
         from iherb_login_page import LoginPage
         return LoginPage()
 
