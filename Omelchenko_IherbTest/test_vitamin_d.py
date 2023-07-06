@@ -20,9 +20,9 @@ filter_name = 'NOW Foods'
 search_results_page.set_brands_filter(filter_name)
 
 first_product_name = search_results_page.get_product_name(1)
+middle_product_name = search_results_page.get_product_name(10)
 last_product_name = search_results_page.get_product_name(48)
-tenth_product_name = search_results_page.get_product_name(10)
 
 assert first_product_name.startswith(filter_name), f'Product is not {filter_name} one'
 assert last_product_name.startswith(filter_name), f'Product is not {filter_name} one'
-assert tenth_product_name.startswith(filter_name), f'Product is not {filter_name} one'
+assert middle_product_name.startswith(filter_name), f'Product is not {filter_name} one'

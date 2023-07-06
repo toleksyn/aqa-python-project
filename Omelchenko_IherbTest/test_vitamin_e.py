@@ -18,13 +18,13 @@ search_results_page = home_page.search('vitamin e')
 search_results_page.verify_that_search_results_have_size_at_least(5)
 
 product_number = 5
-fifth_product_name = search_results_page.get_product_name(product_number)
-fifth_product = search_results_page.add_to_cart_in_grid_view(product_number)
+product_name = search_results_page.get_product_name(product_number)
+cart_modal = search_results_page.add_to_cart_in_grid_view(product_number)
 
-cart_page = fifth_product.open_cart_page()
+cart_page = cart_modal.open_cart_page()
 checkout_page = cart_page.open_checkout_page_while_logged_in()
 checkout_page.select_shipping_address(1)
 
-fifth_product_name_on_checkout = checkout_page.get_product_name(1)
+product_name_on_checkout = checkout_page.get_product_name(1)
 
-assert fifth_product_name == fifth_product_name_on_checkout, f'Product names are not equal'
+assert product_name == product_name_on_checkout, f'Product names are not equal'

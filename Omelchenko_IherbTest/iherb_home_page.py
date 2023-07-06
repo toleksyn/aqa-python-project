@@ -12,8 +12,9 @@ class IherbHomePage:
         return self
 
     def open_site_preference_modal(self) -> IherbSitePreferenceModal:
-        browser.element(by.xpath("//div[@class='country-select']")).wait.for_(be.visible)
-        browser.element(by.xpath("//div[@class='country-select']")).click()
+        site_preference_button = browser.element(by.xpath("//div[@class='country-select']"))
+        site_preference_button.wait.for_(be.visible)
+        site_preference_button.click()
         return IherbSitePreferenceModal()
 
     def search(self, search_keyword) -> IHerbSearchResultsPage:

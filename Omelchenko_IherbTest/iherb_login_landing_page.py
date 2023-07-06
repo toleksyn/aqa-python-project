@@ -16,8 +16,9 @@ class IherbLoginLandingPage:
     def log_in(self, username, password):
         self.set_username(username)
         self.set_password(password)
-        browser.element(by.xpath("//button[@id='sign_in_button']")).wait.for_(be.visible)
-        browser.element(by.xpath("//button[@id='sign_in_button']")).click()
+        sign_in_button = browser.element(by.xpath("//button[@id='sign_in_button']"))
+        sign_in_button.wait.for_(be.visible)
+        sign_in_button.click()
 
     def set_username(self, username):
         browser.element(by.xpath("//input[@id='username_input']")).type(username)

@@ -46,6 +46,6 @@ class IHerbSearchResultsPage:
                                               .format(str(product_number)))).click()
         return IherbCartModal()
 
-    def change_to_list_view(self):
+    def switch_to_list_view(self):
         browser.element(by.xpath("(//*[name()='svg'][@class='icon icon-list-view toggle-view-type selected'])[1]")).click()
         return self
