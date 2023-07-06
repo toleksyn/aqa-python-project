@@ -16,7 +16,7 @@ def test_search_vitamin_a():
     product_number = 5
     fifth_product_review_on_search_page = search_results_page.get_product_reviews_count(product_number)
     fifth_product_details_page = search_results_page.open_product_details_page(product_number)
-    fifth_product_review_on_details_page = fifth_product_details_page.get_product_reviews()
+    fifth_product_review_on_details_page = fifth_product_details_page.get_product_reviews_amount()
 
     assert fifth_product_review_on_search_page == fifth_product_review_on_details_page, f"The stored review and review on " \
                                                                                     f"product page is not equal"
