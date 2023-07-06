@@ -33,7 +33,7 @@ def test_search_vitamin_k_2():
     login_landing_page.verify_that_opened()
     checkout_page = login_landing_page.log_in_on_checkout(login="auto-tests@yopmail.com", password="Test1234!")
     checkout_page.select_shipping_address(1)
-    payment_update_page = checkout_page.place_order_with_incorrect_card()
+    payment_update_page = checkout_page.place_order_with_incorrect_card_number()
     order_details_page = payment_update_page.navigate_to_order_summary_page()
 
     order_details_page.verify_order_number_is_displayed()
