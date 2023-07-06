@@ -21,7 +21,7 @@ class IherbSignInPage:
     def get_error_message_text(self):
         return browser.element(by.xpath("//div[@class='error-message']/span/ul/li")).get(query.text)
 
-    def verify_confirm_dialog_form_open(self):
+    def verify_confirm_dialog_form_opened(self):
         browser.element(by.xpath('/div[@class="form confirm-dialog"]')).should(be.visible)
 
     def close_confirm_dialog_form(self):
