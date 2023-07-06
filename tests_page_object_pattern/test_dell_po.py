@@ -4,8 +4,8 @@ from selene import config
 from rozetka_home_page import RozetkaHomePage
 
 home_page = RozetkaHomePage().open()
-search_results = home_page.search("dell")
-search_results.verify_search_results_at_least(10)
+search_results_page = home_page.search("dell")
+search_results_page.verify_search_results_at_least(10)
 fifth_product_name_on_search_page = search_results.get_product_name(5)
 fifth_product_price_on_search_page = search_results.get_product_price(5)
 add_fifth_product_to_basket = search_results.add_product_to_basket(5)
