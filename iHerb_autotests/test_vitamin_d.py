@@ -18,8 +18,8 @@ def test_search_vitamin_d():
 
     first_product_name = search_results_page.get_product_name(1)
     last_product_name = search_results_page.get_product_name(48)
-    twenty_fourth_product_name = search_results_page.get_product_name(24)
+    middle_product_name = search_results_page.get_product_name(24)
 
     assert first_product_name.startswith(filter_name), f"The product has no 'Now Foods' name"
     assert last_product_name.startswith(filter_name), f"The product has no 'Now Foods' name"
-    assert twenty_fourth_product_name.startswith(filter_name), f"The product has no 'Now Foods' name"
+    assert middle_product_name.startswith(filter_name), f"The product has no 'Now Foods' name"
