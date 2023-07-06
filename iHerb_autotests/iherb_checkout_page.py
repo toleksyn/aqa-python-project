@@ -6,10 +6,9 @@ from iherbtestvenv.iherb_thank_you_page import IherbThankYouPage
 class IherbCheckoutPage:
 
     def get_product_name(self, product_number):
-        browser.element(by.xpath("//*[name()='svg' and @class='LandingPanel__ToggleIcon-sc-bh59r1-4 fUUZvX']"))\
-            .wait.for_(be.visible)
-        browser.element(by.xpath("//*[name()='svg' and @class='LandingPanel__ToggleIcon-sc-bh59r1-4 fUUZvX']"))\
-            .click()
+        product_name = browser.element(by.xpath("//*[name()='svg' and @class='LandingPanel__ToggleIcon-sc-bh59r1-4 fUUZvX']"))
+        product_name.wait.for_(be.visible)
+        product_name.click()
         return self.get_product_brand(product_number) + ', ' + self.get_product_display_name(product_number)
 
     def get_product_brand(self, product_number):
