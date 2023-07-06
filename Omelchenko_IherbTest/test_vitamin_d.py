@@ -13,15 +13,15 @@ home_page = IherbHomePage().open()
 site_preference_modal = home_page.open_site_preference_modal()
 home_page = site_preference_modal.change_language('English')
 
-search_results = home_page.search('vitamin d')
-search_results.verify_that_search_results_have_size_at_least(5)
+search_results_page = home_page.search('vitamin d')
+search_results_page.verify_that_search_results_have_size_at_least(5)
 
 filter_name = 'NOW Foods'
-search_results.set_brands_filter(filter_name)
+search_results_page.set_brands_filter(filter_name)
 
-first_product_name = search_results.get_product_name(1)
-last_product_name = search_results.get_product_name(48)
-tenth_product_name = search_results.get_product_name(10)
+first_product_name = search_results_page.get_product_name(1)
+last_product_name = search_results_page.get_product_name(48)
+tenth_product_name = search_results_page.get_product_name(10)
 
 assert first_product_name.startswith(filter_name), f'Product is not {filter_name} one'
 assert last_product_name.startswith(filter_name), f'Product is not {filter_name} one'

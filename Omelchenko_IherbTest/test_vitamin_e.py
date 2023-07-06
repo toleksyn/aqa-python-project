@@ -14,12 +14,12 @@ home_page = site_preference_drawer.change_language('English')
 
 home_page.open_login_landing_page().log_in_with_iherb_account('roman.omelchenko@external.iherb.com', 'Qwertyuio?')
 
-search_results = home_page.search('vitamin e')
-search_results.verify_that_search_results_have_size_at_least(5)
+search_results_page = home_page.search('vitamin e')
+search_results_page.verify_that_search_results_have_size_at_least(5)
 
 product_number = 5
-fifth_product_name = search_results.get_product_name(product_number)
-fifth_product = search_results.add_to_cart_in_grid_view(product_number)
+fifth_product_name = search_results_page.get_product_name(product_number)
+fifth_product = search_results_page.add_to_cart_in_grid_view(product_number)
 
 cart_page = fifth_product.open_cart_page()
 checkout_page = cart_page.open_checkout_page_while_logged_in()

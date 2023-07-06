@@ -1,4 +1,5 @@
 from selene import browser, by, query, be
+from selenium.common import NoSuchElementException
 
 from Omelchenko_iHerbTest.iherb_thank_you_page import IherbThankYouPage
 from Omelchenko_iHerbTest.iherb_update_payment_page import IherbUpdatePaymentPage
@@ -32,9 +33,11 @@ class IherbCheckoutPage:
         return self
 
     def confirm_credit_card(self, card_number):
-        browser.element(by.xpath("//*[@id='encryptedCardNumber']".format(str(card_number)))).type(card_number)
-        browser.element(by.xpath("//*[@id='credit-card-continue-button']")).click()
-        return self
+        element = browser.element(by.xpath("//*[@id='encryptedCardNumber']"))
+        if element.is_displayed():
+            browser.element(by.xpath("//*[@id='encryptedCardNumber']".format(str(card_number)))).type(card_number)
+            browser.element(by.xpath("//*[@id='credit-card-continue-button']")).click()
+            return self
 
     def place_order_with_invalid_card(self) -> IherbUpdatePaymentPage:
         browser.element(by.xpath("//*[@id='place-order-button']")).click()
