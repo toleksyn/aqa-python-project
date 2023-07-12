@@ -7,7 +7,7 @@ search_results_page = home_page.search('vitamin d')
 search_results_page.verify_search_results_at_least(5)
 
 filter_name = 'Now Foods'
-search_results_page.set_filter('NOW Foods')
+search_results_page.set_filter(filter_name)
 
 first_product_name = search_results_page.get_product_name(1)
 middle_product_name = search_results_page.get_product_name(24)

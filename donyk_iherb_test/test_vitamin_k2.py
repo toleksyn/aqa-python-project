@@ -15,10 +15,10 @@ search_results_page.verify_search_results_at_least(5)
 filter_name = 'NOW Foods'
 search_results_page.set_filter(filter_name)
 
-number_of_product = 3
-third_product_name = search_results_page.get_product_name(number_of_product)
-third_product_price = search_results_page.get_product_price(number_of_product)
-third_product = search_results_page.add_to_cart(number_of_product)
+product_number = 3
+third_product_name = search_results_page.get_product_name(product_number)
+third_product_price = search_results_page.get_product_price(product_number)
+third_product = search_results_page.add_to_cart(product_number)
 
 cart_page = third_product.open_cart_page()
 product_name_cart = cart_page.get_product_name(1)
