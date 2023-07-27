@@ -1,0 +1,14 @@
+from appium.webdriver.common.appiumby import AppiumBy
+from selene import browser
+
+from Omelchenko_AppiumTest.AppiumSelenePageObjectClasses.search_results_page_selene import SearchResultsPage
+
+
+class HomePage:
+    def search(self, search_keyword) -> SearchResultsPage:
+        search_field = browser.element((AppiumBy.XPATH, "//*[@text='Search iHerb']"))
+        search_field.click()
+        search_box = browser.element((AppiumBy.XPATH, "//*[@text='Search iHerb']"))
+        search_box.send_keys(search_keyword)
+        browser.execute_script('mobile: performEditorAction', {"action": "search"})
+        return SearchResultsPage()
