@@ -1,15 +1,8 @@
 from appium import webdriver
 from selene import browser
-
 from Omelchenko_AppiumTest.AppiumSelenePageObjectClasses.currency_language_page_selene import CurrencyLanguagePage
 
-# it doesn't work since Remote() takes second argument as a dictionary, not an object
-# appium_options = AppiumOptions()
-# appium_options.set_capability('platformName', 'Android')
-# appium_options.set_capability('automationName', 'uiautomator2')
-# appium_options.set_capability('deviceName', 'Pixel 4a API 32')
-# appium_options.set_capability('appPackage', 'com.iherb')
-# appium_options.set_capability('appActivity', '.mobile.product.splash.view.SplashActivity')
+
 appium_options = dict(
     platformName="Android",
     automationName="uiautomator2",
