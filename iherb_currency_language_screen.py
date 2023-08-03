@@ -1,0 +1,11 @@
+from appium.webdriver.common.appiumby import AppiumBy
+from iherb_home_screen import IherbHomeScreen
+
+class IherbCurrencyLanguageScreen:
+    def __init__(self, driver):
+        self.driver = driver
+
+    def save_preferences(self) -> IherbHomeScreen:
+        save_country_preferences_button = self.driver.find_element(AppiumBy.XPATH, "//*[@text='Save']")
+        save_country_preferences_button.click()
+        return IherbHomeScreen(self.driver)
