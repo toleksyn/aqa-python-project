@@ -1,5 +1,5 @@
 from appium.webdriver.common.appiumby import AppiumBy
-from Omelchenko_AppiumTest.AppiumPageObjectClasses.product_details_page_appium import ProductDetailsPage
+from Omelchenko_AppiumTest.AppiumPageObjectClasses.product_details_page import ProductDetailsPage
 
 
 class SearchResultsPage:
