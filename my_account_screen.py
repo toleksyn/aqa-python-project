@@ -6,6 +6,6 @@ class MyAccountScreen:
     def __init__(self, driver):
         self.driver = driver
 
-    def open_create_account_screen(self) -> SignInSignUpScreen:
+    def open_sign_up_sign_in_account_screen(self) -> SignInSignUpScreen:
         appium.find_element(AppiumBy.ID, 'com.iherb:id/tv_sign_in').click()
         return SignInSignUpScreen()
