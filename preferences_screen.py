@@ -15,8 +15,8 @@ appium_driver = webdriver.Remote(appium_server_url, appium_options)
 appium_driver.implicitly_wait(15)
 
 class PreferencesScreen:
-    def __init__(self):
-        pass
+    def __init__(self, driver):
+        self.driver = driver
 
     def save_preferences(self) -> HomePageScreen:
         save_country_preferences_button = appium_driver.find_element(AppiumBy.XPATH, "//*[@text='Save']")
