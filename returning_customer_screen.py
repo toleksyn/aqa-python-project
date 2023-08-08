@@ -2,8 +2,8 @@ from appium.webdriver.common.appiumby import AppiumBy
 from pages.mobile_page_objects.home_page_screen import appium_driver
 
 class ReturningCustomerScreen:
-    def __init__(self):
-        pass
+    def __init__(self, driver):
+        self.driver = driver
 
     def set_username(self, username):
         username_field = appium_driver.find_element(AppiumBy.ID, "username_input")
