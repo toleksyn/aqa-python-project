@@ -10,8 +10,8 @@ appium_options = {
 }
 
 appium_server_url = 'http://localhost:4723/wd/hub'
-driver = webdriver.Remote(appium_server_url, appium_options)
-driver.implicitly_wait(20)
+appium_driver = webdriver.Remote(appium_server_url, appium_options)
+appium_driver.implicitly_wait(25)
 
 home_screen = PreferencesScreen().save_preferences()
 search_results_screen = home_screen.search('vitamin d')
