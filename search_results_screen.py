@@ -19,3 +19,11 @@ class SearchResultsScreen:
         product_card = appium_driver.find_element(AppiumBy.XPATH, f"(//*[@resource-id='com.iherb:id/product_info_item'])[{product_number}]")
         product_card.click()
         return ProductDetailsScreen()
+
+    def open_filter_and_sort_drawer(self):
+        filter_and_sort_button = self.driver.find_element(AppiumBy.XPATH, '//*[@resource-id="com.iherb:id/productlist_filter_sort_button"]')
+        filter_and_sort_button.click()
+        return FilterAndSortDrawer(self.driver)
+
+    def get_product_name(self, product_number):
+        return self.driver.find_element(AppiumBy.XPATH, '(//*[@resource-id="com.iherb:id/product_info_text"])[{0}]'.format(str(product_number))).text
