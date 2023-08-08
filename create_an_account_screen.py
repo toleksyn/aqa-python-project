@@ -7,6 +7,6 @@ class CreateAnAccountScreen:
         self.driver = driver
 
     def open_returning_customer_screen(self) -> ReturningCustomerScreen:
-        sign_up_sign_in_button = appium_driver.find_element(AppiumBy.XPATH, '//*[@content-desc="Sign in"]')
-        sign_up_sign_in_button.click()
+        sign_in_button = appium_driver.find_element(AppiumBy.XPATH, '//*[@content-desc="Sign in"]')
+        sign_in_button.click()
         return ReturningCustomerScreen()
