@@ -3,8 +3,8 @@ from pages.mobile_page_objects.home_page_screen import appium_driver
 from pages.mobile_page_objects.product_details_screen import ProductDetailsScreen
 
 class SearchResultsScreen:
-    def __init__(self):
-        pass
+    def __init__(self, driver):
+        self.driver = driver
 
     def verify_search_results_at_least(self, number_of_search_results):
         search_results_count = appium_driver.find_element(AppiumBy.ID, 'com.iherb:id/productlist_productcount_textview').text
