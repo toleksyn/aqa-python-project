@@ -17,10 +17,11 @@ appium_driver.implicitly_wait(40)
 home_screen = IherbCurrencyLanguageScreen(appium_driver).save_preferences()
 
 login_screen = home_screen.sign_in()
-login_form = login_screen.tap_sign_in_button().tap_sign_in_button()
-login_with_incorrect_data = login_form.sign_in_with_credentials("test_data_incorrect@yopmail.com", "Test1234")
+login_form = login_screen.tap_sign_in_button()
+returning_customers_screen = login_form.open_returning_customers_screen()
+login_with_incorrect_data = returning_customers_screen.sign_in_with_credentials("incorrect_test_data1@yopmail.com", "Test1234")
 
-error_message = login_form.get_error_message_text()
+error_message = returning_customers_screen.get_error_message_text()
 
 assert error_message == 'Invalid email, phone number, or password', f'Error message does not match the required'
 

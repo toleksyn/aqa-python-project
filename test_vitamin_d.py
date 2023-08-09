@@ -20,13 +20,15 @@ search_results_screen.verify_that_search_results_have_size_at_least(3)
 
 filter_and_sort_drawer = search_results_screen.open_filter_and_sort_drawer()
 
-filter_name = 'Now Foods'
+filter_name = 'NOW Foods'
 filter_and_sort_drawer.set_brands_filter(filter_name)
 
 first_product_name = search_results_screen.get_product_name(1)
 second_product_name = search_results_screen.get_product_name(2)
 third_product_name = search_results_screen.get_product_name(3)
 
-assert first_product_name.startwith(filter_name), f"The product has no {filter_name} name"
-assert second_product_name.startwith(filter_name), f"The product has no {filter_name} name"
-assert third_product_name.startwith(filter_name), f"The product has no {filter_name} name"
+assert first_product_name.startswith(filter_name), f"The product has no {filter_name} name"
+assert second_product_name.startswith(filter_name), f"The product has no {filter_name} name"
+assert third_product_name.startswith(filter_name), f"The product has no {filter_name} name"
+
+appium_driver.quit()

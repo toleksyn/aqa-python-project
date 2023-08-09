@@ -5,4 +5,4 @@ class IherbProductDetailsScreen:
         self.driver = driver
 
     def get_product_review_amount(self, product_number):
-        return self.driver.find_element(AppiumBy.XPATH, "(//*[resource-id='com.iherb:id/rating'])[{0]").format(str(product_number)).text
+        return self.driver.find_element(AppiumBy.XPATH, "//*[@resource-id='com.iherb:id/nb_review']").text

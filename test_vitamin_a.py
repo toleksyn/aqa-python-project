@@ -21,7 +21,7 @@ search_results_screen.verify_that_search_results_have_size_at_least(3)
 product_number = 3
 third_product_review_on_search_screen = search_results_screen.get_product_review_amount(product_number)
 third_product_details_screen = search_results_screen.open_product_details_page(product_number)
-product_review_on_details_screen = third_product_details_screen.get_product_review_amount()
+product_review_on_details_screen = third_product_details_screen.get_product_review_amount(product_number)
 
 assert third_product_review_on_search_screen == product_review_on_details_screen, f"The stored review and review on " \
                                                                                     f"product page is not equal"
