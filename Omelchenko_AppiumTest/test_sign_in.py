@@ -24,11 +24,9 @@ my_account = homepage.open_my_account()
 login_landing_page = my_account.open_login_landing_page()
 create_an_account_page = login_landing_page.open_create_an_account_page()
 returning_customer_page = create_an_account_page.open_returning_customers_page()
-returning_customer_page.log_in_with_iherb_account('invalid_credentials@yopmail.com', 'invalid_pass')
-actual_error_message = returning_customer_page.get_error_message_text()
 
-expected_error_message = 'Invalid email, phone number, or password'
-assert actual_error_message == expected_error_message, f'Error message does not match the required'
+returning_customer_page.log_in_with_iherb_account('invalid_credentials@yopmail.com', 'invalid_pass')
+returning_customer_page.verify_error_message_displayed('Invalid email, phone number, or password')
 
 driver.quit()
 

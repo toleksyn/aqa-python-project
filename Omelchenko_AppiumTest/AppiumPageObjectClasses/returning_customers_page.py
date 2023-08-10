@@ -32,3 +32,6 @@ class ReturningCustomersPage:
 
     def get_error_message_text(self):
         return self.driver.find_element(AppiumBy.XPATH, "//*[@bounds='[126,389][786,435]']").text
+
+    def verify_error_message_displayed(self, expected_error_message):
+        self.driver.find_element(AppiumBy.XPATH, "//*[@text='{}']".format(expected_error_message)).is_displayed()
